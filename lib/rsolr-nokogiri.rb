@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'rsolr'
-require 'nokogiri'
 
 module RSolr::Nokogiri
   
@@ -19,6 +18,7 @@ module RSolr::Nokogiri
   module Generator
     
     def build &block
+      require 'nokogiri'
       b = Nokogiri::XML::Builder.new(:encoding => 'UTF-8')
       yield b if block_given?
       b.to_xml
